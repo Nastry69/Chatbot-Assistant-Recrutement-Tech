@@ -6,6 +6,7 @@
   "main": "rag-pipeline.js",
   "scripts": {
     "start": "node rag-pipeline.js",
+    "server": "node server.js",
     "index": "node create-index.js",
     "embed": "node embed-documents.js"
   },
@@ -17,11 +18,13 @@
     "pinecone",
     "nodejs"
   ],
-  "author": "Groupe 2 — IPSSI BD3",
+  "author": "Groupe 2 — IPSSI BD3 Tristan DZIOCH, Dillon AZAG, Melvyn BLANCHI",
   "license": "MIT",
   "dependencies": {
     "@pinecone-database/pinecone": "^7.2.0",
     "@xenova/transformers": "^2.0.1",
-    "langchain": "^0.3.37"
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "langchain": "^1.4.0"
   }
 }
