@@ -26,6 +26,8 @@ Le chatbot s'appuie exclusivement sur un corpus de documents fournis. Si la rép
 
 ```
 📦 chatbot-rag/
+├── Public/
+│     ├── index.html
 ├── documents/
 │   ├── fiche_poste.txt
 │   ├── guide_entretien.txt
@@ -35,6 +37,7 @@ Le chatbot s'appuie exclusivement sur un corpus de documents fournis. Si la rép
 ├── embed-documents.js     # Chargement, chunking, vectorisation et stockage
 ├── rag-pipeline.js        # Pipeline RAG complète (retrieve + generate)
 ├── .env.example           # Modèle de configuration (sans vraies clés)
+├── server.js           # Modèle de configuration (sans vraies clés)
 └── README.md
 ```
 
@@ -43,7 +46,7 @@ Le chatbot s'appuie exclusivement sur un corpus de documents fournis. Si la rép
 ## ⚙️ Prérequis
 
 - [Node.js](https://nodejs.org/) v18+
-- Un compte [Mistral AI](https://mistral.ai/) avec une clé API
+- Un compte [Groq AI](https://mistral.ai/) avec une clé API
 - Un compte [Pinecone](https://www.pinecone.io/) avec un index créé
 
 ---
@@ -74,7 +77,7 @@ cp .env.example .env
 Contenu de `.env` :
 
 ```env
-MISTRAL_API_KEY=votre_cle_ici
+Groq_API_KEY=votre_cle_ici
 PINECONE_API_KEY=votre_cle_ici
 PINECONE_INDEX_NAME=votre_index_ici
 ```
@@ -122,7 +125,7 @@ node rag-pipeline.js
 Question utilisateur
         │
         ▼
-  Embedding (Mistral)
+  Embedding (llama-text-embed-v2)
         │
         ▼
   Recherche vectorielle (Pinecone)
@@ -131,7 +134,7 @@ Question utilisateur
   Contexte extrait du corpus
         │
         ▼
-  Génération de réponse (Mistral LLM)
+  Génération de réponse (Groq LLM)
         │
         ▼
   Réponse + source citée
@@ -144,9 +147,9 @@ Question utilisateur
 | Catégorie | Outil |
 |-----------|-------|
 | Runtime | Node.js |
-| LLM | Mistral AI |
+| LLM | GROQ |
 | Base vectorielle | Pinecone |
-| Embeddings | Mistral Embeddings API |
+| Embeddings | llama-text-embed-v2 Embeddings API |
 | Configuration | dotenv |
 
 ---
